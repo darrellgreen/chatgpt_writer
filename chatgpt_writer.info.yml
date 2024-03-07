@@ -1,0 +1,9 @@
+name: 'ChatGPT Writer'
+type: module
+description: 'Allows administrators to manage Goals for GPT-3 Chat API calls, including creating, scheduling, and generating content.'
+package: Custom
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - drupal:node
+  - drupal:user
+  - drupal:taxonomy

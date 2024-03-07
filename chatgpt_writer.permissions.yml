@@ -1,0 +1,31 @@
+administer_chatgpt_writer_settings:
+  title: 'Administer ChatGPT Writer settings'
+  description: 'Allows users to configure ChatGPT Writer module settings.'
+
+create_chatgpt_writer_goals:
+  title: 'Create ChatGPT Writer goals'
+  description: 'Allows users to create new ChatGPT Writer goals.'
+
+edit_own_chatgpt_writer_goals:
+  title: 'Edit own ChatGPT Writer goals'
+  description: 'Allows users to edit their own ChatGPT Writer goals.'
+
+edit_any_chatgpt_writer_goals:
+  title: 'Edit any ChatGPT Writer goals'
+  description: 'Allows users to edit any ChatGPT Writer goals, regardless of ownership.'
+
+delete_own_chatgpt_writer_goals:
+  title: 'Delete own ChatGPT Writer goals'
+  description: 'Allows users to delete their own ChatGPT Writer goals.'
+
+delete_any_chatgpt_writer_goals:
+  title: 'Delete any ChatGPT Writer goals'
+  description: 'Allows users to delete any ChatGPT Writer goals, regardless of ownership.'
+
+view_chatgpt_writer_goals:
+  title: 'View ChatGPT Writer goals'
+  description: 'Allows users to view ChatGPT Writer goals.'
+
+run_chatgpt_writer_goals:
+  title: 'Run ChatGPT Writer goals'
+  description: 'Allows users to manually trigger the execution of ChatGPT Writer goals.'

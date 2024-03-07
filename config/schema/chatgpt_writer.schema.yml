@@ -1,0 +1,29 @@
+chatgpt_writer.settings:
+  type: config_object
+  label: 'ChatGPT Writer settings'
+  mapping:
+    openai_api_key:
+      type: string
+      label: 'OpenAI API Key'
+    writer_generation:
+      type: mapping
+      label: 'Writer Generation Settings'
+      mapping:
+        default_prompt:
+          type: string
+          label: 'Default Prompt'
+        max_tokens:
+          type: integer
+          label: 'Maximum Tokens'
+        temperature:
+          type: number
+          label: 'Temperature'
+        top_p:
+          type: number
+          label: 'Top P'
+        frequency_penalty:
+          type: number
+          label: 'Frequency Penalty'
+        presence_penalty:
+          type: number
+          label: 'Presence Penalty'

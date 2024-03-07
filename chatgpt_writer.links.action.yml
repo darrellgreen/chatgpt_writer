@@ -1,0 +1,5 @@
+chatgpt_writer.goal_add_action:
+  route_name: entity.chatgpt_writer_goal.add_form
+  title: 'Add Goal'
+  appears_on:
+    - entity.chatgpt_writer_goal.collection

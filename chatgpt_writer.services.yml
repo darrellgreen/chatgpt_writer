@@ -1,0 +1,5 @@
+services:
+  chatgpt_writer.chatgpt_service:
+    class: Drupal\chatgpt_writer\ChatGPTService
+    arguments: ['@config.factory', '@http_client']
+

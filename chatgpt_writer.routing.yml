@@ -1,0 +1,51 @@
+chatgpt_writer.settings:
+  path: '/admin/config/services/chatgpt_writer'
+  defaults:
+    _form: '\Drupal\chatgpt_writer\Form\ChatGPTWriterConfigForm'
+    _title: 'ChatGPT Writer Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+chatgpt_writer.goal_list:
+  path: '/admin/content/chatgpt_writer'
+  defaults:
+    _entity_list: 'chatgpt_writer_goal'
+    _title: 'ChatGPT Writer Goals'
+  requirements:
+    _permission: 'administer site configuration'
+
+chatgpt_writer.goal_add:
+  path: '/admin/content/chatgpt_writer/add'
+  defaults:
+    _entity_form: 'chatgpt_writer_goal.add'
+    _title: 'Add Goal'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.chatgpt_writer_goal.edit_form:
+  path: '/admin/content/chatgpt_writer/{chatgpt_writer_goal}/edit'
+  defaults:
+    _entity_form: 'chatgpt_writer_goal.edit'
+    _title: 'Edit Goal'
+  requirements:
+    _entity_access: 'chatgpt_writer_goal.update'
+
+entity.chatgpt_writer_goal.delete_form:
+  path: '/admin/content/chatgpt_writer/{chatgpt_writer_goal}/delete'
+  defaults:
+    _entity_form: 'chatgpt_writer_goal.delete'
+    _title: 'Delete Goal'
+  requirements:
+    _entity_access: 'chatgpt_writer_goal.delete'
+
+chatgpt_writer.run_goal:
+  path: '/admin/content/chatgpt_writer/{chatgpt_writer_goal}/run'
+  defaults:
+    _controller: '\Drupal\chatgpt_writer\Controller\GoalController::runGoal'
+    _title: 'Run Goal'
+  requirements:
+    _permission: 'run chatgpt writer goals'
+  options:
+    parameters:
+      chatgpt_writer_goal:
+        type: entity:chatgpt_writer_goal

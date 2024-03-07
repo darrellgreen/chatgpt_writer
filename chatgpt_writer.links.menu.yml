@@ -1,0 +1,20 @@
+chatgpt_writer.admin_settings:
+  title: 'ChatGPT Writer Settings'
+  description: 'Configure ChatGPT Writer module settings.'
+  parent: system.admin_config_services
+  route_name: chatgpt_writer.settings
+  weight: 100
+
+chatgpt_writer.goal_list:
+  title: 'ChatGPT Writer Goals'
+  description: 'List and manage ChatGPT Writer goals.'
+  parent: system.admin_content
+  route_name: chatgpt_writer.goal_list
+  weight: 100
+
+chatgpt_writer.goal_add:
+  title: 'Add Goal'
+  description: 'Add a new ChatGPT Writer goal.'
+  parent: chatgpt_writer.goal_list
+  route_name: chatgpt_writer.goal_add
+  weight: 1

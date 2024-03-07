@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks and callbacks for the ChatGPT Writer module.
+ */
+
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+
+/**
+ * Implements hook_cron().
+ *
+ * Checks and processes Goals based on their frequency during cron runs.
+ */
+function chatgpt_writer_cron() {
+  $logger = \Drupal::service('logger.factory')->get('chatgpt_writer');
+  $entity_type_manager = \Drupal::entityTypeManager();
+
+  try {
+    // Use the updated entity type ID here.
+    $goal_storage = $entity_type_manager->getStorage('chatgpt_writer_goal');
+    $goals = $goal_storage->loadMultiple();
+
+    foreach ($goals as $goal) {
+      // Your logic for checking and processing each Goal.
+      $logger->info('Processing goal: @id', ['@id' => $goal->id()]);
+    }
+  }
+  catch (\Exception $e) {
+    $logger->error('Error during cron: @message', ['@message' => $e->getMessage()]);
+  }
+}
+
+
+/**
+ * Implements hook_help().
+ *
+ * Provides help text for the ChatGPT Writer module.
+ */
+function chatgpt_writer_help($route_name, $route_match) {
+  switch ($route_name) {
+    case 'help.page.chatgpt_writer':
+      return '<p>' . t('Information on how to use the ChatGPT Writer module.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function chatgpt_writer_entity_type_build(array &$entity_types) {
+  // Check if your custom entity type is registered.
+  if (isset($entity_types['chatgpt_writer_goal'])) {
+    \Drupal::logger('chatgpt_writer')->notice('The chatgpt_writer_goal entity type is registered.');
+  }
+  else {
+    \Drupal::logger('chatgpt_writer')->error('The chatgpt_writer_goal entity type is NOT registered.');
+  }
+
+  // Optionally, you can log information about all registered entity types.
+  // This can give you a clear overview of what's registered and might help identify issues.
+  foreach ($entity_types as $entity_type_id => $entity_type) {
+    \Drupal::logger('chatgpt_writer')->debug('Registered entity type: ' . $entity_type_id);
+  }
+}
